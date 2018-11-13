@@ -12,8 +12,13 @@ get '/admin' do
   "By your command..."
 end
 
-get '/cat' do
-"<div>
-  <img src='http://bit.ly/1eze8aE' style='border: 3px dashed red'>
-  </div>"
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking"].sample
+  erb(:index)
+end
+
+get '/named-cat' do
+  p params
+  @name = params[:name]
+  erb(:index)
 end
